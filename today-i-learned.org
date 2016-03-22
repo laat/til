@@ -1,0 +1,45 @@
+#+TITLE: Today I learned
+#+AUTHOR: Sigurd Fosseng
+#+EMAIL: sigurd@fosseng.net
+#+OPTIONS: H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:{} _:{} *:t TeX:t LaTeX:t
+
+* org-mode
+** preview latex formulas                                              :math:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-21 Mon>
+   :END:
+
+   #+begin_src sh :exports code
+     apt-get install texlive-latex-recommended texlive-fonts-recommended dvipng
+   #+end_src
+
+   #+begin_src emacs-lisp :exports code
+     (setq org-latex-create-formula-image-program 'dvipng)
+     (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.5))
+   #+end_src
+
+   Write some LaTeX functions \(f(x) = \frac{x^3}{n}\).
+
+   Display inline latex by pressing ~C-c C-x C-l~
+
+** mathjax with argmax                                                 :math:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-22 Tue>
+   :END:
+
+   The default mathjax is old, simply replace it
+
+   #+begin_src org
+     ,#+HTML_MATHJAX: path:"http://cdn.mathjax.org/mathjax/latest/MathJax.js"
+   #+end_src
+
+   And add the operator:
+   #+begin_src org
+     ,#+BEGIN_HTML
+     \(
+     \DeclareMathOperator*{\argmax}{argmax}
+     \)
+     ,#+END_HTML
+
+     $ \argmax_{c_i} $
+   #+end_src
