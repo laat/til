@@ -3,8 +3,25 @@
 #+EMAIL: sigurd@fosseng.net
 #+OPTIONS: H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:{} _:{} *:t TeX:t LaTeX:t
 
+* JavaScript
+** Parse JavasScript                                              :js:estree:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-29 Tue>
+   :END:
+
+   [[https://github.com/ternjs/acorn][Acorn]] is transitively used by [[http://eslint.org/][eslint]] and produces [[https://github.com/estree/estree][estree]]
+
+   #+begin_src sh
+   npm i -g acorn
+   #+end_src
+
+   #+begin_src js
+   var parser = require("acorn/dist/acorn_loose").parse_dammit;
+   var tree = parser('import foo from "foo" // answer', {})
+   console.log(tree)
+   #+end_src
 * org-mode
-** preview latex formulas                                              :math:
+** preview latex formulas                                          :org:math:
    :PROPERTIES:
    :LEARNED:  <2016-03-21 Mon>
    :END:
@@ -22,7 +39,7 @@
 
    Display inline latex by pressing ~C-c C-x C-l~
 
-** mathjax with argmax                                                 :math:
+** mathjax with argmax                                             :org:math:
    :PROPERTIES:
    :LEARNED:  <2016-03-22 Tue>
    :END:
@@ -43,3 +60,35 @@
 
      $ \argmax_{c_i} $
    #+end_src
+** CSS examples                                                     :org:css:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-27 Tue>
+   :END:
+   #+begin_src css
+     body {
+         padding: 0;
+         background: #eee none repeat scroll 0 0;
+         max-width: 1000px;
+         margin: 0px auto;
+         padding: 1em;
+         color: #000;
+         font-family: "Open Sans", "Bitstream Vera Sans", "Verdana", sans-serif;
+         line-height: 1.4em;
+         font-size: 90%;
+     }
+   #+end_src
+** Graphs                                                           :org:dot:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-27 Tue>
+   :END:
+
+   #+begin_src dot :file dot-example.png
+     digraph {
+       a -> b;
+       b -> c:
+       c -> a;
+     }
+   #+end_src
+
+   #+RESULTS:
+   [[file:dot-example.png]]
