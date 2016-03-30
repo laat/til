@@ -20,6 +20,54 @@
    var tree = parser('import foo from "foo" // answer', {})
    console.log(tree)
    #+end_src
+
+** Trace functional JavaScript                                     :js:debug:
+   :PROPERTIES:
+   :LEARNED:  <2016-03-30 Wed>
+   :END:
+
+   I have started using this snippet in IntelliJ and Emacs when
+   tabbing on =_trace=. I decided against a node module because it is
+   something i only use for debugging and should not be there when I
+   am comitting.
+
+   #+begin_src js
+     function trace (message) { return function (x) { console.log(message, x); return x; }}; // eslint-disable-line
+   #+end_src
+
+   #+RESULTS:
+
+   Easier to read multiple lines:
+   #+begin_src js
+     function trace (message) {
+         return function (x) {
+             console.log(message, x);
+             return x;
+         }
+     };
+   #+end_src
+
+   Example usage:
+   #+begin_src js :results output
+     function trace (message) { return function (x) { console.log(message, x); return x; }}; // eslint-disable-line
+
+     function addOne(x) {
+         return x + 1;
+     }
+     // add one twise, one inside trace, one after
+     var res = [1, 2, 3]
+         .map(trace('list value'))
+         .map(addOne)
+     console.log(res)
+   #+end_src
+
+   #+RESULTS:
+   : list value 1
+   : list value 2
+   : list value 3
+   : [ 2, 3, 4 ]
+
+   It gives me a quick function to call when debuging functional javascript
 * org-mode
 ** preview latex formulas                                          :org:math:
    :PROPERTIES:
