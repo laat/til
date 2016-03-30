@@ -48,16 +48,18 @@
    #+end_src
 
    Example usage:
-   #+begin_src js :results output
+   #+begin_src js :results output :exports both
      function trace (message) { return function (x) { console.log(message, x); return x; }}; // eslint-disable-line
 
      function addOne(x) {
          return x + 1;
      }
-     // add one twise, one inside trace, one after
+
+     // example
      var res = [1, 2, 3]
          .map(trace('list value'))
          .map(addOne)
+
      console.log(res)
    #+end_src
 
