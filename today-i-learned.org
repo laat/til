@@ -4,6 +4,18 @@
 #+OPTIONS: H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:{} _:{} *:t TeX:t LaTeX:t
 
 * JavaScript
+
+** ES2016 object spread is crazy power full                       :js:spread:
+   :PROPERTIES:
+   :LEARNED: [2016-04-26 Tue 23:00]
+   :END:
+
+   #+begin_src javascript
+     export function mergeResults(...functions) {
+       return (...args) => functions.reduce((result, fn) => ({ ...result, ...fn(...args) }), {});
+     }
+   #+end_src
+
 ** Parse JavasScript                                              :js:estree:
    :PROPERTIES:
    :LEARNED:  <2016-03-29 Tue>
@@ -20,7 +32,6 @@
    var tree = parser('import foo from "foo" // answer', {})
    console.log(tree)
    #+end_src
-
 ** Trace functional JavaScript                                     :js:debug:
    :PROPERTIES:
    :LEARNED:  <2016-03-30 Wed>
