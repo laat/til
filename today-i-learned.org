@@ -4,6 +4,14 @@
 #+OPTIONS: H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:{} _:{} *:t TeX:t LaTeX:t
 
 * JavaScript
+** flatten                                                       :js:spread:
+   :PROPERTIES:
+   :LEARNED: [2017-09-01 Tue 23:00]
+   :END:
+
+   #+begin_src javascript
+     const flatten = (arr) => Array.prototype.concat(...arr);
+   #+end_src
 
 ** ES2016 object spread is crazy power full                       :js:spread:
    :PROPERTIES:
