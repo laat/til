@@ -4,6 +4,22 @@
 #+OPTIONS: H:2 num:nil toc:nil \n:nil @:t ::t |:t ^:{} _:{} *:t TeX:t LaTeX:t
 
 * JavaScript
+** isElementInViewport                                          :js:
+   :PROPERTIES:
+   :LEARNED: [2018-07-11 Wed 21:00]
+   :END:
+   #+begin_src javascript
+     function isElementInViewport(el) {
+       var rect = el.getBoundingClientRect();
+       return (
+         rect.top >= 0 &&
+         rect.left >= 0 &&
+         rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+         rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+       );
+     }
+   #+end_src
+
 ** flatten                                                       :js:spread:
    :PROPERTIES:
    :LEARNED: [2017-09-01 Tue 23:00]
